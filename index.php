@@ -1,85 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Quiz System</title>
-    <style>
-        /* Reset some defaults */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcard System</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+<style>
+body {
+    background: #f5f7fb;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+.card-home {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
 
-        a {
-            padding: 15px 30px;
-            background: #fff;
-            color: #2575fc;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        a:hover {
-            transform: translateY(-5px);
-            background: #f0f0f0;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        @media(max-width: 500px) {
-            h1 {
-                font-size: 2rem;
-            }
-            a {
-                padding: 12px 25px;
-            }
-        }
-    </style>
+.btn-dark-custom {
+    background: linear-gradient(135deg, #111827, #374151);
+    color: #fff;
+    border-radius: 10px;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Online Quiz System</h1>
-    <p>Select where you want to go</p>
+<div class="hero">
+    <div class="card-home">
+        <h2 class="mb-3">Flashcard Learning System</h2>
+        <p class="text-muted">Practice programming with interactive flashcards</p>
 
-    <div class="button-container">
-        <a href="admin/">Admin Panel</a>
-        <a href="test.php">Test Page</a>
+        <div class="mt-4">
+            <a href="auth/login.php" class="btn btn-dark-custom w-100 mb-2">Login</a>
+            <a href="auth/register.php" class="btn btn-outline-dark w-100">Create Account</a>
+        </div>
     </div>
+</div>
 
 </body>
 </html>

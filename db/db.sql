@@ -1,29 +1,26 @@
 CREATE DATABASE devquiz_db;
 USE devquiz_db;
 
-
-/* mga manggamit */
+-- USERS TABLE (FIXED)
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    email VARCHAR(150) UNIQUE,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    role VARCHAR(10) DEFAULT 'user'
 ) ENGINE=InnoDB;
 
-
-/*mga langguage*/
+-- LANGUAGES
 CREATE TABLE languages (
     language_id INT AUTO_INCREMENT PRIMARY KEY,
     language_name VARCHAR(50) NOT NULL UNIQUE
 ) ENGINE=InnoDB;
 
-
-/* mga choices */
 INSERT INTO languages (language_name) VALUES
 ('JavaScript'),
 ('Python');
 
-
-/* mga pangutana */
+-- QUESTIONS
 CREATE TABLE questions (
     question_id INT AUTO_INCREMENT PRIMARY KEY,
     language_id INT NOT NULL,
@@ -34,8 +31,7 @@ CREATE TABLE questions (
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-
-/*mga answer*/
+-- ANSWERS
 CREATE TABLE answers (
     answer_id INT AUTO_INCREMENT PRIMARY KEY,
     question_id INT NOT NULL,
@@ -46,21 +42,18 @@ CREATE TABLE answers (
         ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-
-/*sample nga question*/
-INSERT INTO questions (language_id, question_text, difficulty)
+-- SAMPLE QUESTION (FIXED)
+INSERT INTO questions (language_id, question_text)
 VALUES (1, 'Which keyword declares a variable in JavaScript?');
 
-
+-- SAMPLE ANSWERS (FIXED with correct answer)
 INSERT INTO answers (question_id, answer_text, is_correct) VALUES
-(1,'var'),
-(1,'let'),
-(1,'define'),
-(1,'variable');
+(1,'var',0),
+(1,'let',1),  -- correct
+(1,'define',0),
+(1,'variable',0);
 
-
-/*user answer*/
-
+-- USER ANSWERS
 CREATE TABLE user_answers (
     user_answer_id INT AUTO_INCREMENT PRIMARY KEY,
     attempt_id INT NOT NULL,
@@ -72,3 +65,6 @@ CREATE TABLE user_answers (
     FOREIGN KEY (answer_id)
         REFERENCES answers(answer_id)
 ) ENGINE=InnoDB;
+
+INSERT INTO users (name, email, password, role)
+VALUES ('Admin', 'admin@example.com', '123456', 'admin');
